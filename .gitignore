@@ -1,0 +1,15 @@
+# Ambiente e file temporanei
+.venv/
+__pycache__/
+.DS_Store
+.idea/
+.env
+
+# Dati: si scaricano da Kaggle (vedi README)
+data/*.csv
+
+# Modello allenato: si rigenera con python src/allena.py
+models/
+
+# File di studio delle lezioni
+studio/
