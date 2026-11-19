@@ -8,11 +8,11 @@ Consiglia la coltura più adatta a un terreno partendo da 7 valori: azoto, fosfo
 
 Tutti i modelli usano lo stesso split stratificato: 70% train, 15% validation, 15% test. I modelli si confrontano sul validation; il test viene usato una volta sola, per il modello scelto.
 
-| Modello | Validation | Test |
-| --- | --- | --- |
-| Albero decisionale (profondità 12) | 98,2% | — |
-| Random Forest (100 alberi) | 99,1% | **99,7%** |
-| Rete neurale MLP (early stopping, epoca 68) | 99,7% | — |
+| Modello                                     | Validation | Test      |
+| ------------------------------------------- | ---------- | --------- |
+| Albero decisionale (profondità 12)          | 98,2%      | —         |
+| Random Forest (100 alberi)                  | 99,1%      | **99,7%** |
+| Rete neurale MLP (early stopping, epoca 68) | 99,7%      | —         |
 
 La rete supera la foresta di 2 righe su 330 sul validation: è un pareggio tecnico. Ho scelto la **Random Forest** perché è più semplice da usare e mantenere: non richiede normalizzazione né la scelta del numero di epoche.
 
@@ -52,10 +52,3 @@ streamlit run src/app.py
 - **Il dataset è piccolo e "pulito"** (2.200 righe, 100 per coltura, nessun valore mancante). Su dati reali di un'azienda agricola l'accuratezza sarebbe più bassa e servirebbe più lavoro di pulizia.
 - **Il modello risponde sempre**, anche per terreni mai visti. Con un terreno da deserto (44 °C, pioggia e umidità al minimo) consiglia il melone con circa il 35% di probabilità: per questo l'app mostra un avviso quando la probabilità è sotto il 50%.
 - **Gemini può aggiungere interpretazioni sue**, anche se il prompt chiede di non inventare: la decisione resta sempre del modello di machine learning.
-
-## Sviluppi futuri
-
-- Ottimizzazione degli iperparametri con cross-validation (`GridSearchCV`).
-- Confronto con modelli a gradient boosting (XGBoost, LightGBM).
-- Spiegazione di ogni singola previsione con SHAP, da passare a Gemini.
-- Test con dati reali di aziende agricole.
