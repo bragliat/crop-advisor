@@ -14,7 +14,7 @@ Tutti i modelli usano lo stesso split stratificato: 70% train, 15% validation, 1
 | Random Forest (100 alberi)                  | 99,1%      | **99,7%** |
 | Rete neurale MLP (early stopping, epoca 68) | 99,7%      | —         |
 
-La rete supera la foresta di 2 righe su 330 sul validation: è un pareggio tecnico. Ho scelto la **Random Forest** perché è più semplice da usare e mantenere: non richiede normalizzazione né la scelta del numero di epoche.
+Il 99,7% della rete è il migliore tra le epoche controllate sul validation (early stopping), quindi è leggermente ottimista; la differenza con la foresta è comunque di 2 righe su 330, un pareggio tecnico. Ho scelto la **Random Forest** perché è più semplice da usare e mantenere: non richiede normalizzazione né la scelta del numero di epoche.
 
 ![Importanza delle colonne](reports/importanza_colonne.png)
 
